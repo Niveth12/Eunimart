@@ -47,7 +47,7 @@ Login Page:
 User Cards:
 ![image](https://user-images.githubusercontent.com/103325074/221402542-c04b3813-195f-456e-bddf-1f947e876029.png)
 
-User Details:
+Individual User Details:
 ![image](https://user-images.githubusercontent.com/103325074/221402588-bcc1d614-c742-4ec3-b789-c415c93512bd.png)
 
 
