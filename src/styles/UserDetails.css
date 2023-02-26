@@ -1,0 +1,50 @@
+.userdetail-outer{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 200;
+    box-sizing: border-box;
+   background: linear-gradient(to top,rgba(2, 0, 35, 0.363),rgba(0, 72, 113, 0.301));
+    border-radius: 20px;
+    margin:20px auto;
+    color: white;
+    transition: 0.3s;
+    backdrop-filter: blur(20px);
+    border: 0.1px solid rgb(58, 57, 57);
+    
+    padding: 20px;
+    padding-top: 0px;
+    
+}
+
+.userdetail-inner{
+    margin-top: 0px;
+}
+
+.userdetail-outer img{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: contain;
+    transform: translateY(-70px);
+    margin: 0px;
+}
+
+.userdetail-inner-2{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+}
+.userdetail-inner-2 p:nth-child(1){
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.userdetail-inner-2 p:nth-child(2){
+    font-size: 17px;
+    color: rgb(219, 219, 219);
+}
