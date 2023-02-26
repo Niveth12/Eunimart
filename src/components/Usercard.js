@@ -1,6 +1,7 @@
 import { React } from "react";
 import { useNavigate } from "react-router-dom";
 import "../styles/Usercard.css";
+import profile from './asserts/profile.png';
 
 const Usercard = ({ data ,change_user,id}) => {
   const navigate=useNavigate();
@@ -10,10 +11,10 @@ const Usercard = ({ data ,change_user,id}) => {
       navigate("/user_detail")
 
     }}>
-        <img src={data.avatar}></img>
+        <img src={profile}></img>
       <div className="usercard-inner">
-        <p id="user-name">{data.first_name}</p>
-        {/* <p id="user-email">{data.email}</p> */}
+        <p id="user-name">{data.name}</p>
+        <p id="user-email">{data.phone}</p>
       </div>
     </div>
   );

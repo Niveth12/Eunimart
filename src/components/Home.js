@@ -4,17 +4,20 @@ import Usercard from "./Usercard";
 import "../styles/Home.css";
 import img from "./asserts/bg.webp";
 import UserDetails from "./UserDetails";
+import { useNavigate } from "react-router-dom";
 
-const Home = ({setUserId}) => {
+const Home = ({ setUserId }) => {
   const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function fetchData() {
-      const result = await axios.get("https://reqres.in/api/users");
+      //API USED->https://jsonplaceholder.typicode.com/users
+      const result = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
 
-      console.log(result.data.data);
-
-      setUsers(result.data.data);
+      setUsers(result.data);
     }
     fetchData();
   }, []);
@@ -40,6 +43,7 @@ const Home = ({setUserId}) => {
           left: "0",
         }}
       >
+        {/* this used for the background stars */}
         <section>
           <span></span>
           <span></span>
@@ -55,6 +59,17 @@ const Home = ({setUserId}) => {
       </div>
 
       <img src={img} id={"bg-img2"}></img>
+      <button
+        id="logout"
+        onClick={() => {
+          localStorage.removeItem("username");
+          localStorage.removeItem("email");
+          localStorage.removeItem("phone");
+          navigate("/");
+        }}
+      >
+        Logout
+      </button>
 
       <div className="user-list-inner">{user_list}</div>
     </div>

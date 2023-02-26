@@ -3,28 +3,40 @@ import axios from "axios";
 import "../styles/UserDetails.css";
 import img from "./asserts/bg.webp";
 import { useNavigate } from "react-router-dom";
+import profile from "./asserts/profile.png";
 
 const UserDetails = ({ id }) => {
   const [details, setDetails] = useState({});
+  const [address, setAddress] = useState("");
+  const [company, setCompany] = useState({});
   const navigate = useNavigate();
   useEffect(() => {
     if (id == "") {
-      
       navigate("/home");
     }
-    console.log(id);
+
     async function fetchData() {
-      const result = await axios.get("https://reqres.in/api/users/" + id);
-      console.log(result);
-      setDetails(result.data.data);
+      const result = await axios.get(
+        "https://jsonplaceholder.typicode.com/users/" + id
+      );
+      setDetails(result.data);
+      setAddress(result.data.address);
+      setCompany(result.data.company);
     }
     fetchData();
   }, []);
 
   return (
     <div>
-
-<div
+      <button
+        id="back"
+        onClick={() => {
+          navigate("/home");
+        }}
+      >
+        back
+      </button>
+      <div
         style={{
           position: "absolute",
           width: "100%",
@@ -49,22 +61,70 @@ const UserDetails = ({ id }) => {
 
       <img src={img} id={"bg-img2"}></img>
 
-    <div className="userdetail-outer">
-      <img src={details.avatar}></img>
-      <div className="userdetail-inner">
-        <div className="userdetail-inner-2">
-          <p>First Name</p>
-          <p>{details.first_name}</p>
+      <div className="userdetail-outer">
+        <img src={profile}></img>
+        <div className="userdetail-inner">
+          <div className="userdetail-inner-2">
+            <p>Name</p>
+            <p>{details.name}</p>
+          </div>
+          <div className="userdetail-inner-2">
+            <p>Username</p>
+            <p>{details.username}</p>
+          </div>
+          <div className="userdetail-inner-2">
+            <p>Phone</p>
+            <p>{details.phone}</p>
+          </div>
+          <div className="userdetail-inner-2">
+            <p>Email</p>
+            <p>{details.email}</p>
+          </div>
+          <div className="userdetail-inner-2">
+            <p>Address</p>
+            <div
+              style={{
+                display: "block",
+                color: "rgb(219, 219, 219)",
+                textAlign: "right",
+              }}
+            >
+              <p
+                style={{
+                  marginTop: "5px",
+                  marginBottom: "5px",
+                  color: "rgb(219, 219, 219)",
+                  fontWeight: "400",
+                }}
+              >
+                {address.street}
+              </p>
+              <p
+                style={{
+                  marginTop: "5px",
+                  marginBottom: "5px",
+                  color: "rgb(219, 219, 219)",
+                  fontWeight: "400",
+                }}
+              >
+                {address.city}
+              </p>
+              <p style={{ marginTop: "5px", marginBottom: "5px" }}>
+                {address.zipcode}
+              </p>
+            </div>
+          </div>
+          <div className="userdetail-inner-2">
+            <p>Website</p>
+            <p>
+              <a href={"http://" + details.website}>{details.website}</a>
+            </p>
+          </div>
+          <div className="userdetail-inner-2">
+            <p>Company</p>
+            <p>{company.name}</p>
+          </div>
         </div>
-        <div className="userdetail-inner-2">
-          <p>Last Name</p>
-          <p>{details.last_name}</p>
-        </div>
-        <div className="userdetail-inner-2">
-          <p>Email</p>
-          <p>{details.email}</p>
-        </div>
-      </div>
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 .userdetail-outer{
-    width: 400px;
-    height: 400px;
+    width: 365px;
+    height: auto;
     position: absolute;
     top:50%;
     left: 50%;
@@ -16,12 +16,14 @@
     border: 0.1px solid rgb(58, 57, 57);
     
     padding: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 0px;
     
 }
 
 .userdetail-inner{
-    margin-top: 0px;
+    margin-top: -60px;
 }
 
 .userdetail-outer img{
@@ -47,4 +49,21 @@
 .userdetail-inner-2 p:nth-child(2){
     font-size: 17px;
     color: rgb(219, 219, 219);
+}
+
+#back{
+    position: absolute;
+    top:10px;
+    left: 20px;
+    color: white;
+    background-color: transparent;
+    font-size: 20px;
+    border: 0px;
+    z-index: 3000;
+}
+
+#back:hover{
+    cursor: pointer;
+    text-decoration: underline;
+   
 }

@@ -2,7 +2,7 @@
     width: 70%;
     height: auto;
     box-sizing: border-box;
-   background: linear-gradient(to top,rgba(2, 0, 35, 0.363),rgba(0, 72, 113, 0.301));
+   background: linear-gradient(to top,rgba(24, 21, 73, 0.363),rgba(0, 115, 181, 0.301));
     border-radius: 20px;
     margin:20px auto;
     padding-top: 60px;
@@ -17,14 +17,14 @@
 }
 
 .usercard-outer:hover{
-    transform: scale(1.04);
+    transform: scale(1.08);
     cursor: pointer;
 }
 
 
 .usercard-outer img{
-    width: 100px;
-    height: 100px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: contain;
     
@@ -50,3 +50,31 @@
     font-size: 16px;
     color: rgb(168, 168, 168);
 }
+
+
+@media only screen and (max-width: 900px) {
+
+    .usercard-outer{
+        display: block;
+        padding: 10px;
+    }
+
+    .usercard-outer:first-child{
+        margin-top: 70px;
+    }
+
+    #user-name{
+        font-size: 20px;
+    }
+
+    #user-email{
+        font-size: 13px;
+    }
+
+    .usercard-inner{
+        margin: auto;
+        width: 90%;
+    }
+
+}
+

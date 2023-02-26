@@ -10,23 +10,37 @@ const Login = () => {
   const navigate = useNavigate();
 
   const onSubmitHandler = () => {
-    if (username != "" && email != "" && phone != "") {
+    var pattern_email = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
+
+    if (username == "") {
+      window.alert("please enter a valid username");
+    } else if (!pattern_email.test(email)) {
+      window.alert("please enter a valid email");
+    } else if (phone == "") {
+      window.alert("please enter a valid phone number");
+    } else {
       localStorage.setItem("username", username);
       localStorage.setItem("email", email);
       localStorage.setItem("phone", phone);
       navigate("/home");
-    } else {
-      window.alert("please enter all the details");
+      setEmail("");
+      setPhone("");
+      setUsername("");
     }
-    setEmail("");
-    setPhone("");
-    setUsername("");
   };
 
   return (
     <div className="outer-login">
       <img id={"bg-img"} src={img}></img>
-      <div style={{position:"absolute","width":"100%","height":"100%","top":"0",left:"0"}}>
+      <div
+        style={{
+          position: "absolute",
+          width: "100%",
+          height: "100%",
+          top: "0",
+          left: "0",
+        }}
+      >
         <section>
           <span></span>
           <span></span>
